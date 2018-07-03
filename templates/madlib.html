@@ -1,11 +1,18 @@
 <!doctype html>
 <html>
 <head>
-	<title>Madib</title>
+	<title>Madlib</title>
 </head>
 	<body>
-		There once was a {{ color }} {{ noun }} sitting in the Hackbright Lab.
-When {{ person }} went to pick it up, it burst into flames in a totally
-{{ adjective }} way.
+		<h1>Here is the result:</h1>
+		{% if game_type_lunch %}
+		At lunch I ate a {{ color }} {{ noun }} sitting in the Hackbright Lab. {{ person }} made spaghetti, it burst into flames in a totally {{ adjective }} way.
+		{% endif %}
+		<br>
+		<br>
+		{% if game_type_spooky %}
+		On a dark and {{adjective}} night at hackbright, a {{noun}} creeped behind {{person}} while they ate their scary spaghetti.
+		And the computers were all {{color}}!
+		{% endif %}
 	</body>
-	</html>
+</html>

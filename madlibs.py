@@ -64,13 +64,16 @@ def show_madlib():
     person = request.args.get("person")
     color = request.args.get("color")
     adjective = request.args.get("adjective")
-
+    game_type_lunch = request.args.get("game_type_lunch")
+    game_type_spooky = request.args.get("game_type_spooky")
     return render_template(
         "madlib.html",
         noun=noun,
         person=person,
         color=color,
-        adjective=adjective
+        adjective=adjective,
+        game_type_spooky=game_type_spooky,
+        game_type_lunch=game_type_lunch
     )
 
 
