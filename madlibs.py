@@ -33,13 +33,48 @@ def say_hello():
 def greet_person():
     """Greet user with compliment."""
 
-    player = request.args.get("person")
+    player = request.args.get("player")
+    play_game = request.args.get("game")
 
     compliment = choice(AWESOMENESS)
 
     return render_template("compliment.html",
-                           person=player,
+                           player=player,
                            compliment=compliment)
+
+
+@app.route('/game')
+def show_madlib_form():
+    """Shows madlib form"""
+
+    play_game = request.args.get("game")
+
+    player = request.args.get("player")
+
+    if play_game == "no":
+        return render_template("goodbye.html",
+                               player=player)
+    else:
+        return render_template("game.html")
+
+
+@app.route('/madlib')
+def show_madlib():
+    noun = request.args.get("noun")
+    person = request.args.get("person")
+    color = request.args.get("color")
+    adjective = request.args.get("adjective")
+
+    return render_template(
+        "madlib.html",
+        noun=noun,
+        person=person,
+        color=color,
+        adjective=adjective
+    )
+
+
+
 
 
 if __name__ == '__main__':
